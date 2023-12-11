@@ -8,13 +8,13 @@ import java.util.Random;
 public class Karakter {
     private static final Random RND = new Random();
     private int eletero, ugyesseg, szerencse;
-    private ArrayList<Targy> felszereles;
+    private ArrayList<Targy> felszerelesek;
     
     public Karakter() {
         this.eletero = this.kockadobas(2) + 12;
         this.ugyesseg = this.kockadobas() + 6;
         this.szerencse = this.kockadobas() + 6;
-        this.felszereles = new ArrayList<>();
+        this.felszerelesek = new ArrayList<>();
     }
     
     private int kockadobas() {
@@ -38,7 +38,41 @@ public class Karakter {
     }
     
     public void felvesz(Targy targy) {
-        this.felszereles.add(targy);
+        this.felszerelesek.add(targy);
+    }
+    
+    public void hasznal(String targyNev) {
+        this.hasznal(targyNev, 1);
+    }
+    
+    public void hasznal(String targyNev, int db) {
+        this.hasznal(targyNev, db, true);
+    }
+    
+    /**
+     * 
+     * @param targyNev elhasználandó tárgy neve
+     * @param db elhasználandó tárgy darab száma
+     * @param hasznalHaKevesebbVan elhasználja-e a megadott darab számú tárgyat, ha kevesebb van a játékosnál
+     */
+    public void hasznal(String targyNev, int db, boolean hasznalHaKevesebbVan) {
+        ArrayList<Integer> targyIndexek = new ArrayList();
+        
+        for (int i = 0; i < this.felszerelesek.size() && (targyIndexek.size() < db); i++) {
+            if (this.felszerelesek.get(i).getNev().equals(targyNev)) {
+                targyIndexek.add(i);
+            }
+        }
+        int talaltTargyDb = targyIndexek.size();
+        
+        if (hasznalHaKevesebbVan || talaltTargyDb == db) {
+            for (int index = targyIndexek.size(); index > 0; index--) {
+                this.felszerelesek.remove(index);
+            }
+            System.out.printf("%d db %s sikeresen felhasználva!\n", talaltTargyDb, targyNev);
+        } else {
+            System.out.printf("%s nem sikerült felhasználni! (%d/%d)\n", targyNev, db, talaltTargyDb);
+        }
     }
 
     public int getEletero() {
@@ -55,8 +89,9 @@ public class Karakter {
 
     @Override
     public String toString() {
-        return "Karakter{" + "eletero=" + eletero + ", ugyesseg=" + ugyesseg + ", szerencse=" + szerencse + '}';
+        return "Karakter{" + "eletero=" + eletero + ", ugyesseg=" + ugyesseg + ", szerencse=" + szerencse + ", felszerelesek=" + felszerelesek + '}';
     }
+
 
     @Override
     public int hashCode() {
@@ -86,7 +121,6 @@ public class Karakter {
             return false;
         }
         return this.szerencse == other.szerencse;
-    }
-    
+    }    
     
 }
