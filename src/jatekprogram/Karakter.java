@@ -1,16 +1,20 @@
 
 package jatekprogram;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class Karakter {
     private static final Random RND = new Random();
     private int eletero, ugyesseg, szerencse;
+    private ArrayList<String> felszereles;
     
     public Karakter() {
         this.eletero = this.kockadobas(2) + 12;
         this.ugyesseg = this.kockadobas() + 6;
         this.szerencse = this.kockadobas() + 6;
+        this.felszereles = new ArrayList<>();
     }
     
     private int kockadobas() {
