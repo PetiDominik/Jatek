@@ -65,13 +65,17 @@ public class Karakter {
         }
         int talaltTargyDb = targyIndexek.size();
         
-        if (hasznalHaKevesebbVan || talaltTargyDb == db) {
-            for (int index = targyIndexek.size(); index > 0; index--) {
-                this.felszerelesek.remove(index);
+        if (talaltTargyDb > 0) {
+            if (hasznalHaKevesebbVan || talaltTargyDb == db) {
+                for (int index = targyIndexek.size(); index > 0; index--) {
+                    this.felszerelesek.remove(index);
+                }
+                System.out.printf("%d db %s sikeresen felhasználva!\n", talaltTargyDb, targyNev);
+            } else {
+                System.out.printf("%s nem sikerült felhasználni! (%d/%d)\n", targyNev, db, talaltTargyDb);
             }
-            System.out.printf("%d db %s sikeresen felhasználva!\n", talaltTargyDb, targyNev);
         } else {
-            System.out.printf("%s nem sikerült felhasználni! (%d/%d)\n", targyNev, db, talaltTargyDb);
+            System.out.println("Nem található ilyen tárgy!");
         }
     }
 
