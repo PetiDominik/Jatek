@@ -73,7 +73,7 @@ public class MainForm extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         
-        this.aktualisHelszin = new Kezdes();
+        this.aktualisHelszin = this.aktualisHelszin.egyikIrany();
         
         this.jTextArea1.setText(this.aktualisHelszin.leiras());
         

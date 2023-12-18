@@ -8,4 +8,15 @@ public class Start extends Helyszin {
         return "Ez a start!";
     }
 
+    @Override
+    public Helyszin egyikIrany() {
+        return new Kezdes();
+    }
+
+    @Override
+    public Helyszin masikIrany() {
+        throw new UnsupportedOperationException("Nem tudjuk hova menjünk a start oldalról."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    
 }
