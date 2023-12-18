@@ -2,9 +2,12 @@
 package jatekprogram;
 
 public class MainForm extends javax.swing.JFrame {
-
+    private Helyszin aktualisHelszin;
     public MainForm() {
         initComponents();
+        
+        this.aktualisHelszin = new Start();
+        this.jTextArea1.setText(this.aktualisHelszin.leiras());
     }
 
     /**
@@ -24,7 +27,6 @@ public class MainForm extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Játék");
         setMinimumSize(new java.awt.Dimension(350, 200));
-        setPreferredSize(new java.awt.Dimension(400, 200));
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -33,6 +35,11 @@ public class MainForm extends javax.swing.JFrame {
         jButton1.setText("jButton1");
 
         jButton2.setText("jButton2");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -63,6 +70,14 @@ public class MainForm extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        
+        this.aktualisHelszin = new Kezdes();
+        
+        this.jTextArea1.setText(this.aktualisHelszin.leiras());
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
