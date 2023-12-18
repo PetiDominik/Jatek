@@ -1,7 +1,7 @@
 
 package jatekprogram;
 
-public class Bal extends Helyszin {
+public class Bal extends Helyszin implements MasikIrany{
 
     @Override
     public String leiras() {
@@ -10,18 +10,22 @@ public class Bal extends Helyszin {
 
     @Override
     public Helyszin egyikIrany() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return new Kelet();
     }
 
     @Override
     public Helyszin masikIrany() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return new Nyugat();
     }
 
     @Override
-    public String gombFelirat() {
-        return "Irány tovább!";
+    public String egyikGombFelirat() {
+        return "Irány kelet!";
     }
-    
+
+    @Override
+    public String masikGombFelirat() {
+        return "Irány nyugat!";
+    }
     
 }

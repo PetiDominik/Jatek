@@ -1,21 +1,22 @@
 
 package jatekprogram;
 
-public class Start extends Helyszin {
+public class Kelet2 extends Helyszin {
 
     @Override
     public String leiras() {
-        return "Ez a start! Menj tovább!";
+        return "Ez itt a kelet 2, irány észak ?!";
     }
 
     @Override
     public Helyszin egyikIrany() {
-        return new Kezdes();
+        return new Eszak();
     }
 
     @Override
     public String egyikGombFelirat() {
-        return "start";
+        return "Irány észak!";
     }
-
+    
+    
 }

@@ -1,31 +1,31 @@
 
 package jatekprogram;
 
-public class Kezdes extends Helyszin implements MasikIrany {
-    
+public class Jobb extends Helyszin implements MasikIrany{
+
     @Override
     public String leiras() {
-        return "Jobbra vagy balra?";
+        return "Észak vagy dél?";
     }
 
     @Override
     public Helyszin egyikIrany() {
-        return new Jobb();
+        return new Eszak();
     }
 
     @Override
     public Helyszin masikIrany() {
-        return new Bal();
+        return new Del();
     }
-
+    
     @Override
     public String egyikGombFelirat() {
-        return "Menj jobbra!";
+        return "Irány észak!";
     }
-
+    
     @Override
     public String masikGombFelirat() {
-        return "Menj balra";
+        return "Irány dél!";
     }
-
+   
 }

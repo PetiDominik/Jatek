@@ -7,7 +7,7 @@ public class MainForm extends javax.swing.JFrame {
         initComponents();
         
         this.aktualisHelszin = new Start();
-        this.jTextArea1.setText(this.aktualisHelszin.leiras());
+        this.mozgas();
     }
 
     /**
@@ -79,18 +79,27 @@ public class MainForm extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         this.aktualisHelszin = this.aktualisHelszin.egyikIrany();
         
-        this.jButton1.setVisible(false);
-        this.jButton2.setText(this.aktualisHelszin.gombFelirat());
-        
-        this.jTextArea1.insert(this.aktualisHelszin.leiras() + System.lineSeparator(), 0);
-        this.jTextArea1.setCaretPosition(0);
-        
+        this.mozgas();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        this.aktualisHelszin = ((MasikIrany)this.aktualisHelszin).masikIrany();
+        this.mozgas();
     }//GEN-LAST:event_jButton1ActionPerformed
-
+    
+    private void mozgas() {
+        this.jButton1.setVisible(this.aktualisHelszin instanceof MasikIrany);
+        
+        this.jButton2.setText(this.aktualisHelszin.egyikGombFelirat());
+        if (this.aktualisHelszin instanceof MasikIrany) {
+            this.jButton1.setText(((MasikIrany)this.aktualisHelszin).masikGombFelirat());
+        }
+        
+        this.jTextArea1.insert(this.aktualisHelszin.leiras() + System.lineSeparator(), 0);
+        this.jTextArea1.setCaretPosition(0);
+    }
+    
+    
     /**
      * @param args the command line arguments
      */

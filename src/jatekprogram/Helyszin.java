@@ -6,7 +6,6 @@ public abstract class Helyszin {
     public abstract String leiras();
     
     public abstract Helyszin egyikIrany();
-    public abstract Helyszin masikIrany();
     
-    public abstract String gombFelirat();
+    public abstract String egyikGombFelirat();
 }
