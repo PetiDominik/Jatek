@@ -7,4 +7,6 @@ public abstract class Helyszin {
     
     public abstract Helyszin egyikIrany();
     public abstract Helyszin masikIrany();
+    
+    public abstract String gombFelirat();
 }
